@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.study.dao.MenuTypeMapper">
+    <insert id="addMenuType" parameterType="MenuType">
+        insert into orderfood.tmtype (mtid, mtname) values (#{mtid}, #{mtname});
+    </insert>
+    <select id="queryAllMenu" resultType="MenuType">
+        select * from tmtype
+    </select>
+    <select id="queryMenuTypeById" resultType="MenuType" parameterType="String">
+        select * from tmtype where mtid = #{id}
+    </select>
+</mapper>

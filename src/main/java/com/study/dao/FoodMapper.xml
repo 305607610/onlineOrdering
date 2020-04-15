@@ -4,7 +4,28 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.study.dao.FoodMapper">
+    <insert id="addFood" parameterType="Food">
+        insert into orderfood.tmenu
+         (id, mtid, mname, price, pic, isValide, detalis)
+         values (#{id}, #{mtid}, #{mname}, #{price}, #{pic}, #{isValide}, #{detalis})
+    </insert>
+    <delete id="deleteFood" parameterType="String">
+        delete * from orderfood.tmenu where id = #{id}
+    </delete>
+    <update id="updateFood" parameterType="String">
+        update orderfood.tmenu set (mtid, mname, price, pic, isValide, detalis) =
+          (#{mtid}, #{mname}, #{price}, #{pic}, #{isValide}, #{detalis}) where id = #{id};
+    </update>
+    <select id="queryFoodById" resultType="Food">
+        select * from orderfood.tmenu where id = #{id}
+    </select>
+    <select id="queryFoodLikeName" resultType="Food">
+        select * from orderfood.tmenu where name like "%"#{name}"%"
+    </select>
     <select id="queryAllFood" resultType="Food">
-        select * from orderfood.food
+        SELECT * from tmenu, tmtype where tmenu.mtid = tmtype.mtid
+    </select>
+    <select id="queryFoods" databaseId="id">
+        select * from tmunu where id in #{id};
     </select>
 </mapper>

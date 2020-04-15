@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.study.dao.UserMapper">
+    <select id="login" resultType="User" parameterType="String">
+        select * from orderfood.tuser where uname = #{uname} and pwd = #{pwd};
+    </select>
+    <insert id="regist" parameterType="User">
+        insert into orderfood.tuser (uname, pwd, account, name, phone, address) values (#{uname}, #{pwd}, #{account},
+        #{name}, #{phone}, #{address});
+    </insert>
+    <select id="validUname" parameterType="String" resultType="String">
+        select uname from orderfood.tuser where uname = #{uname};
+    </select>
+    <select id="queryAllUser" resultType="User">
+        select * from orderfood.tuser;
+    </select>
+</mapper>

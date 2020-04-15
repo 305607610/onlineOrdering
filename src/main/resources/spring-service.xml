@@ -14,6 +14,12 @@
     <bean id="FoodServiceImpl" class="com.study.service.FoodServiceImpl">
         <property name="foodMapper" ref="foodMapper"/>
     </bean>
+    <bean id="MenuTypeServiceImpl" class="com.study.service.MenuTypeServiceImpl">
+        <property name="menuTypeMapper" ref="menuTypeMapper"/>
+    </bean>
+    <bean id="UserServiceImpl" class="com.study.service.UserServiceImpl">
+        <property name="userMapper" ref="userMapper"/>
+    </bean>
 
     <!-- 配置事务管理器 -->
     <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
